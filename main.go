@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/manfered/Go-GettingStarted-WebServer/controllers"
+)
 
 func main() {
-	fmt.Println("hello")
+	// register web server routing
+	controllers.RegisterControllers()
+
+	// serving the webserver on localhost port 5000
+	http.ListenAndServe(":5000", nil)
 }
